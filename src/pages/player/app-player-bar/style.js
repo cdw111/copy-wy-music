@@ -8,7 +8,19 @@ export const PlaybarWrapper = styled.div`
   height: 52px;
   background-position: 0 0;
   background-repeat: repeat;
-
+  .lyric {
+    background-color: #000;
+    opacity: 0.5;
+    text-align: center;
+    width: 980px;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    bottom: 46px;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
   .content {
     display: flex;
     align-items: center;

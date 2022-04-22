@@ -12,7 +12,7 @@ export function parseLyric(lyric) {
     for(let line of lines) {
         if(line) {
             const res = parseExp.exec(line)
-            if(res) continue
+            if(!res) continue
             const time1 = res[1] * 60 *1000
             const time2 = res[2] * 1000
             const time3 = res[3].length === 3 ? res[3] * 1 : res[3] * 10

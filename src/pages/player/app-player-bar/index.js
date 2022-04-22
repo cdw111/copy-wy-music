@@ -6,13 +6,15 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import {getSizeImage,formatTime,getPlaySong} from '@/utils/format-utils'
 import { NavLink } from 'react-router-dom';
 export default memo(function PlayerBar() {
+    const [currentLyr,setCurrentLyr] = useState(0)
     const [currentTime,setCurrentTime] = useState(0)
     const [progress,setProgress] = useState(0)
     const [isChange,setIsChange] = useState(false)
     const [isPlaying,setIsPlaying] = useState(false)
-    const {currentSong,sequence} = useSelector(state => ({
+    const {currentSong,sequence,lyricList} = useSelector(state => ({
         currentSong: state.getIn(["player","currentSong"]),
-        sequence: state.getIn(["player","sequence"])
+        sequence: state.getIn(["player","sequence"]),
+        lyricList: state.getIn(["player","lyricList"])
     }),shallowEqual)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -41,6 +43,17 @@ export default memo(function PlayerBar() {
             setCurrentTime(e.target.currentTime * 1000)
             setProgress(currentTime / duration *100)
         }
+        //获取当前歌词索引
+        setCurrentLyr(0);
+        for(let i = 0; i < lyricList.length;i++) {
+            let lyric = lyricList[i].time
+            if(e.target.currentTime * 1000 < lyric) {
+                setCurrentLyr(i - 1);
+                break;
+            }
+        }
+
+        
     }
     const sliderChange = useCallback((value) => {
         setIsChange(true)
@@ -76,6 +89,9 @@ export default memo(function PlayerBar() {
     }
     return (
         <PlaybarWrapper className='sprite_player'>
+            <div className='lyric wrap-02'>
+                {lyricList[currentLyr]?.content}
+            </div>
             <div className='content wrap-02'>
                 <Control isPlaying={isPlaying}>
                     <button className='sprite_player prev' onClick={e => {changeMusic(-1)}}></button>

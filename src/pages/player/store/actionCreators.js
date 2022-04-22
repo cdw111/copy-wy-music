@@ -22,6 +22,7 @@ export const changeCurrentSong = (type) => {
         const sequence = getState().getIn(["player","sequence"])
         let currentSongIndex = getState().getIn(["player","currentSongIndex"])
         const playList = getState().getIn(["player","playList"])
+        console.log(currentSongIndex)
         switch(sequence) {
             case 1:
                 currentSongIndex = Math.floor(Math.random() * playList.length)
@@ -40,6 +41,8 @@ export const changeCurrentSong = (type) => {
                 break;
         }
         const currentSong = playList[currentSongIndex]
+        console.log(currentSong,currentSongIndex)
+        dispatch(changeCurrentSongIndexAction(currentSongIndex))
         dispatch(changeCurrentSongAction(currentSong))
         dispatch(getLyricAction(currentSong.id))
     }
