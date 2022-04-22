@@ -1,0 +1,105 @@
+@import "~normalize.css";
+@import "~antd/dist/antd.css";
+/* 导入的一些基础配置 */
+
+
+
+/* 自己设置一些基础重置 */
+body,html,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,header,menu,section,p,input,td,th,ins {
+    padding: 0;
+    margin: 0;
+}
+
+ul,ol,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+a:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
+i,em {
+    font-style: normal;
+}
+input,textarea,button,select,a {
+    outline: none;
+    border: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+img {
+    bottom: none;
+    vertical-align: middle;
+}
+
+
+/* 一些全局样式 */
+body, textarea, select, input, button {
+    font-size: 12px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.wrap-v1 {
+    width: 1100px;
+    margin: 0 auto;
+}
+.wrap-v2 {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.sprite_01 {
+    background: url(../img/sprite_01.png.png) no-repeat 0 9999px;
+}
+.sprite_02 {
+    background: url(../img/sprite_02.png.jpg) no-repeat 0 9999px;
+}
+.sprite_cover {
+    background: url(../img/sprite_cover.png.jpg) no-repeat 0 9999px;
+}
+.sprite_icon {
+    background: url(../img/sprite_icon.png.png) no-repeat 0 9999px;
+}
+.sprite_icon2 {
+    background: url(../img/sprite_icon2.png.png) no-repeat 0 9999px;
+}
+.sprite_button {
+    background: url(../img/sprite_button.png.png) no-repeat 0 9999px;
+}
+.sprite_button2 {
+    background: url(../img/sprite_button2.png.png) no-repeat 0 9999px;
+}
+.sprite_table {
+    background: url(../img/sprite_table.png.png) no-repeat 0 9999px;
+}
+
+.image_cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-indent: -9999px;
+    background: #fff no-repeat -145px -57px;
+    opacity: 0.25;
+}
+
+
+.sprite_player {
+    background: url(../img/playbar_sprite.png) no-repeat 0 9999px;
+}
