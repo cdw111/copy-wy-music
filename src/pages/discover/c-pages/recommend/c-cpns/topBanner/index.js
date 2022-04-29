@@ -30,7 +30,12 @@ export default memo(function CTopBanner() {
 
     
     const change = useCallback((from,to) => {
-        setCurrentIndex(to)
+        //1.进行改为after
+        //2.改为异步操作  以防影响后续代码的执行
+        setTimeout(() => {
+            setCurrentIndex(to)
+        },0)
+        
     },[])
 
     const bgImage = topBanners[currentIndex]?.imageUrl + "?imageView&blur=40x20"

@@ -1,15 +1,27 @@
 import React from 'react';
-import CDiscover from '@/pages/discover'
-import CFriends from '@/pages/friends'
-import CMine from '@/pages/mine'
+
 import { Navigate, useRoutes } from 'react-router-dom';
-import CDJ from '@/pages/discover/c-pages/dj';
-import CRanking from '@/pages/discover/c-pages/ranking';
-import CSinger from '@/pages/discover/c-pages/singer';
-import CSongs from '@/pages/discover/c-pages/songs';
-import CAlbum from '@/pages/discover/c-pages/album';
-import CRecommend from '@/pages/discover/c-pages/recommend';
-import CPlayer from '@/pages/player'
+//import CDiscover from '@/pages/discover'
+// import CFriends from '@/pages/friends'
+// import CMine from '@/pages/mine'
+// import CDJ from '@/pages/discover/c-pages/dj';
+// import CRanking from '@/pages/discover/c-pages/ranking';
+// import CSinger from '@/pages/discover/c-pages/singer';
+// import CSongs from '@/pages/discover/c-pages/songs';
+// import CAlbum from '@/pages/discover/c-pages/album';
+// import CRecommend from '@/pages/discover/c-pages/recommend';
+// import CPlayer from '@/pages/player'
+const CDiscover = React.lazy(() => import("@/pages/discover"));
+const CMine = React.lazy(() => import("@/pages/mine"));
+const CDJ = React.lazy(() => import("@/pages/discover/c-pages/dj"));
+const CFriends = React.lazy(() => import("@/pages/friends"));
+const CRanking = React.lazy(() => import("@/pages/discover/c-pages/ranking"));
+const CSinger = React.lazy(() => import("@/pages/discover/c-pages/singer"));
+const CSongs = React.lazy(() => import("@/pages/discover/c-pages/songs"));
+const CAlbum = React.lazy(() => import("@/pages/discover/c-pages/album"));
+const CRecommend = React.lazy(() => import("@/pages/discover/c-pages/recommend"));
+const CPlayer = React.lazy(() => import("@/pages/player"));
+
 const ToRoutes = () => {
     const routes = useRoutes([
         {
@@ -19,6 +31,7 @@ const ToRoutes = () => {
             //     return <Navigate to="/discover"/>
             // }
             element: <Navigate to="/discover"/>
+            //redirect: <CDiscover/>
         },
         {
             path: "/discover",

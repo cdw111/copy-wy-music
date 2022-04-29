@@ -8,6 +8,8 @@ import {
     HeaderLeft,
     HeaderRight,
  } from './style'
+import { useLogin } from '../../utils/my-hooks'
+import UserLogin from '@/components/user-login'
 export default memo(function CAppHeader() {
 
     const showSelectItem = (item,index) => {
@@ -21,10 +23,13 @@ export default memo(function CAppHeader() {
             )
         }
     }
+    const [login,setLogin] = useLogin()
 
-
-
-
+    const userlogin = () => {
+        document.body.style.overflow = 'hidden'
+        setLogin(!login)
+        console.log(login)
+    }
 
     return (
         <HeaderWrapper>
@@ -47,10 +52,13 @@ export default memo(function CAppHeader() {
                 <HeaderRight>
                     <Input className='search' placeholder="音乐/视频/电台/用户" prefix={<SearchOutlined />}/>
                     <div className='center'>创作者中心</div>
-                    <a className='user-login'>登录</a>
+                    <div className='user-login'onClick={e => userlogin()} >登录</div>
                 </HeaderRight>
             </div>
             <div className="divider"></div>
+            {
+                login ? <UserLogin></UserLogin> : <div></div>
+            }
         </HeaderWrapper>
         
     )
